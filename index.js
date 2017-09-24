@@ -10,13 +10,16 @@ var contato = {};
 
 // Cria Cliente Redis
 // Porta e hostname são retirados de configuration -> endpoint do redislabs.com
-var clienteRedis = redis.createClient();
+//var clienteRedis = redis.createClient();
+// Porta e hostname são retirados de configuration -> endpoint do redislabs.com
+var clienteRedis = redis.createClient(16828, 
+	'redis-16828.c14.us-east-1-3.ec2.cloud.redislabs.com', 
+	{no_ready_check: true});
 
-/*
 clienteRedis.auth('password', function (err) {
     if (err) throw err;
 });
-*/
+
 
 clienteRedis.on('connect', function () {
     console.log('Servidor Redis Conectado ...');
@@ -75,15 +78,15 @@ app.post('/contato/salvar', function (req, res) {
         });
 });
 
-/*
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function () {
     console.log('Servidor Inicializado na porta', app.get('port'));
 });
-*/
 
+/*
 app.listen(3000);
 console.log('Servidor Inicializado na Porta 3000 ...',
     'URL: http://localhost:3000/');
+*/
 
 module.exports = app;
