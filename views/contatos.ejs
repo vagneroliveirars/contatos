@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Contato</title>
+    <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h3>Contato</h3>
+            <form method="post" action="/contato/salvar">
+                <label>Nome</label><br>
+                <input type="text" name="nome" placeholder="Nome" value="<%= contato.nome %>">
+                <br><br>
+                <label>Email</label><br>
+                <input type="text" name="email" placeholder="Email" value="<%= contato.email %>">
+                <br><br>
+                <label>Telefone</label><br>
+                <input type="text" name="telefone" placeholder="Telefone" value="<%= contato.telefone %>">
+                <br><br>
+                <input type="submit" value="Salvar">
+            </form>
+        </div>
+
+        <div>
+            <form method="post" action="/contato/remover">
+                <input type="submit" value="Remover">
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
